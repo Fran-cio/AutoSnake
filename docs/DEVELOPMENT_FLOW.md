@@ -1,36 +1,39 @@
-# Development Flow Log (SR2)
+# Development Flow — AutoSnake (SR2)
 
-## Resumen
-Se ejecutó un flujo multiagente para completar AutoSnake MVP con trazabilidad en commits, PRs y documentación.
+## Objetivo
+Entregar Snake 2D MVP terminado y dejar trazabilidad de coordinación multiagente.
 
-## Línea de tiempo
-1. Definición de alcance MVP y arquitectura ligera.
-2. Preparación de bootstrap del proyecto Python/pygame.
-3. Implementación de lógica de juego (dominio puro) + capa pygame.
-4. Documentación consolidada (README + plan + trazabilidad).
-5. Validación local parcial (tests no ejecutados por dependencia faltante en entorno).
+## Cronología resumida
+1. **Arquitectura/PM inicial**: definición de estructura, ADR, DoD y plan de PR incremental.
+2. **Validación de acceso GitHub**: primer commit, corrección de identidad de autor bot.
+3. **PR de documentación**: README base + plan/progreso.
+4. **Orquestación multiagente ampliada**: arquitectura, frontend, backend, QA, security, PM, DevOps, Product, UX/UI, Smart-contracts, Fullstack.
+5. **Implementación MVP**: módulos de juego, input, colisiones, food, score, game over, restart.
+6. **Hardening**: tests de lógica, CI mínima, docs de interacción con agentes.
 
-## PRs creados durante el proceso
-- PR #1: docs iniciales y convención de atribución.
-- PR #2: bootstrap técnico pygame.
-- PR #3: documentación tipo Best-README-Template.
-- PR final (este flujo): implementación completa MVP + documentación de interacciones.
+## Matriz de delegación (resumen)
+| Agente | Foco | Resultado operativo |
+|---|---|---|
+| lead-architect-sr2 | arquitectura/riesgos | diseño modular + fixed tick |
+| frontend-dev-sr2 | gameplay e input | reglas de movimiento + anti-reversa |
+| backend-dev-sr2 | lógica testeable | separación lógica pura |
+| qa-dev-sr2 | pruebas | cobertura de reglas críticas |
+| security-dev-sr2 | higiene seguridad | gitignore/deps/secret hygiene |
+| project-manager-sr2 | cierre/retrospectiva | documentación de flujo y DoD |
+| devops-dev-sr2 | CI | workflow de tests en GitHub Actions |
+| product-manager-sr2 | valor/roadmap | prioridades MVP/v0.2 |
+| uxui-dev-sr2 | UX visual | HUD y game-over legibles |
+| smart-contracts-dev-sr2 | aplicabilidad | no aplicable al MVP local |
+| fullstack-dev-sr2 | release structure | checklist de entrega integral |
 
-## Convención de commits usada
-Todos los commits incluyen atributo de ejecución:
-`[by: <agent-id>]`
+## Puntos de mejora identificados
+1. **Persistencia de outputs de subagentes**: guardar respuestas completas automáticamente en `docs/agents/raw/`.
+2. **Plantilla única de delegación**: objetivo, constraints, formato de salida, DoD.
+3. **Preflight de credenciales**: verificar git/gh auth antes de abrir primer PR.
+4. **Entorno de test reproducible**: usar devcontainer o workflow local sin depender de `venv` del host.
+5. **Automatización de changelog** por PR y estado de hitos.
 
-Ejemplos:
-- `feat(game): implement snake core loop [by: frontend-dev-sr2]`
-- `test(core): add collision tests [by: qa-dev-sr2]`
-
-## Riesgos encontrados
-- Configuración de credenciales GH separada entre `root` y `node`.
-- Helper de credenciales global VSCode interfería con push HTTPS.
-- Restricción de visibilidad de `sessions_history` impidió leer transcript completo de subagentes.
-
-## Puntos de mejora del flujo
-1. Provisionar credenciales de GitHub para usuario de runtime antes de arrancar.
-2. Habilitar visibilidad controlada de historiales de subagentes para auditoría.
-3. Definir plantilla única de PR body para evitar errores de formateo.
-4. Agregar CI temprana (pytest) para validar en cada PR.
+## Estado de cierre
+- Código MVP implementado.
+- Documentación de flujo e interacciones disponible.
+- CI inicial agregado.

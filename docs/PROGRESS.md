@@ -9,7 +9,9 @@
 ## PR #3
 - docs(readme): template README + implementation/progress docs
 
-## PR Final (actual)
+## PR Final (actual) — `feat/snake-mvp-complete`
 - feat(game): implementación completa MVP Snake
 - test(game): tests unitarios de lógica crítica
+- ci(test): GitHub Actions para pytest
 - docs(flow): documentación completa de flujo multiagente
+- docs(agents): registro de delegaciones y puntos de mejora
