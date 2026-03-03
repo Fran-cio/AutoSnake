@@ -32,9 +32,45 @@ Proyecto MVP de Snake con arquitectura modular y trazabilidad por PR/commit.
 - pygame 2.5+
 - pytest (tests de lógica)
 
-## Cómo ejecutar
+## How to install
+
+### Opción A — usando `python3` + entorno virtual (recomendado)
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/Fran-cio/AutoSnake.git
+cd AutoSnake
+
+python3 -m venv .venv
+source .venv/bin/activate      # Linux/macOS
+# .venv\Scripts\activate      # Windows (PowerShell/CMD)
+
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
+```
+
+### Opción B — usando `python` + entorno virtual
+```bash
+git clone https://github.com/Fran-cio/AutoSnake.git
+cd AutoSnake
+
+python -m venv .venv
+source .venv/bin/activate      # Linux/macOS
+# .venv\Scripts\activate      # Windows (PowerShell/CMD)
+
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+## How to run
+
+Con entorno virtual activo:
+
+### Ejecutar con `python3`
+```bash
+PYTHONPATH=src python3 -m autosnake.main
+```
+
+### Ejecutar con `python`
+```bash
 PYTHONPATH=src python -m autosnake.main
 ```
 
