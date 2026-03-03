@@ -28,11 +28,13 @@ Proyecto MVP de Snake con arquitectura modular y trazabilidad por PR/commit.
 - Salida con `ESC` o cerrar ventana
 
 ## Stack
-- Python 3.10+
+- Python **3.11 / 3.12 recomendado** (3.10+ soportado)
 - pygame 2.5+
 - pytest (tests de lógica)
 
 ## How to install
+
+> Recomendación: usar **Python 3.11 o 3.12** para evitar compilación manual de `pygame`.
 
 ### Opción A — usando `python3` + entorno virtual (recomendado)
 ```bash
@@ -77,6 +79,35 @@ PYTHONPATH=src python -m autosnake.main
 ## Cómo testear
 ```bash
 PYTHONPATH=src pytest -q
+```
+
+## Troubleshooting (macOS)
+
+Si ves este error al instalar:
+
+```text
+fatal error: 'SDL.h' file not found
+ERROR: Failed building wheel for pygame
+```
+
+Significa que `pygame` intentó compilarse desde source y faltan librerías SDL.
+
+### Solución recomendada
+Usar Python 3.11/3.12 en un entorno virtual nuevo:
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+### Alternativa (si mantenés tu versión actual de Python)
+Instalar dependencias SDL con Homebrew y volver a instalar:
+
+```bash
+brew install sdl2 sdl2_image sdl2_mixer sdl2_ttf pkg-config
+pip install -r requirements.txt
 ```
 
 ## Documentación
